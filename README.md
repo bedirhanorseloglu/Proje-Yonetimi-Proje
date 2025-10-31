@@ -23,8 +23,20 @@ Bu proje, Stack Overflow Developer Survey 2024 verileri kullanılarak geliştiri
   - Ülke ve deneyim seviyesi
 
 ### 3. Web Uygulaması (Streamlit)
-- **Tahmin Sayfası:** Kullanıcı bilgilerine göre maaş tahmini
-- **Keşif Sayfası:** Veri görselleştirme ve istatistikler
+- **Ana Sayfa:** Proje özeti ve genel bakış
+- **Veri Keşfi:** İstatistiksel analizler ve interaktif görselleştirmeler
+  - ANOVA testleri
+  - Korelasyon analizleri
+  - Dağılım analizleri (Q-Q plot, histogram)
+  - Violin ve box plot görselleştirmeleri
+- **Maaş Tahmini:** Gerçek zamanlı tahmin ve karşılaştırmalar
+  - Deneyim projeksiyonu
+  - Ülke karşılaştırmaları
+  - Model performans metrikleri
+- **Kümeleme Analizi:** K-Means sonuçları ve küme profilleri
+  - Elbow ve Silhouette grafikleri
+  - Küme karakteristikleri
+  - Dil kullanım ısı haritaları
 
 ## 📊 Kümeleme Bulguları
 
@@ -55,10 +67,12 @@ Analiz sonucunda **2 ana geliştirici grubu** tespit edildi:
 MLAPP_3/
 ├── SalaryPrediction.ipynb    # Ana analiz notebook'u
 ├── app.py                      # Streamlit ana uygulaması
-├── predict_page.py             # Tahmin sayfası
-├── explore_page.py             # Keşif sayfası
+├── predict_page.py             # Maaş tahmin sayfası
+├── explore_page.py             # Veri keşif sayfası
+├── clustering_page.py          # Kümeleme analizi sayfası
+├── requirements.txt            # Gerekli Python paketleri
 ├── saved_steps.pkl             # Eğitilmiş maaş tahmin modeli
-├── clustering_model.pkl        # Kümeleme modeli
+├── clustering_model.pkl        # Kümeleme modeli (opsiyonel)
 └── README.md                   # Proje dökümantasyonu
 ```
 
@@ -66,7 +80,12 @@ MLAPP_3/
 
 ### Gereksinimler
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn streamlit
+pip install -r requirements.txt
+```
+
+veya manuel olarak:
+```bash
+pip install streamlit pandas numpy scikit-learn matplotlib seaborn scipy
 ```
 
 ### Notebook'u Çalıştırma
@@ -90,14 +109,25 @@ streamlit run app.py
 - Silhouette skoru: k = 2 önerdi
 - Final karar: k = 2 (daha net küme ayrımı)
 
-## 📊 Görselleştirmeler
+## 📊 Görselleştirmeler ve Özellikler
 
-Proje şunları içerir:
-- Elbow grafiği (optimal k belirleme)
-- Silhouette skoru grafikleri
-- PCA ile 2D küme görselleştirmesi
-- Programlama dili kullanım ısı haritası
-- Detaylı küme analiz raporları
+### Analiz ve Görselleştirmeler:
+- **Elbow grafiği** - Optimal k belirleme için WCSS analizi
+- **Silhouette skoru grafikleri** - Küme kalitesi değerlendirmesi
+- **PCA 2D görselleştirme** - Kümelerin düşük boyutlu temsili
+- **Isı haritaları** - Programlama dili kullanım oranları
+- **Violin/Box plotlar** - Maaş dağılım analizleri
+- **Scatter plotlar** - Deneyim vs maaş ilişkisi
+- **ANOVA testleri** - İstatistiksel anlamlılık testleri
+- **Q-Q plotlar** - Normallik testleri
+
+### Streamlit Arayüzü:
+- 🎨 Modern ve profesyonel tasarım
+- 📱 Responsive layout
+- 🎯 İnteraktif görselleştirmeler
+- 📊 Gerçek zamanlı metrikler
+- 💾 CSV export özelliği
+- 🔬 İleri düzey istatistiksel analizler
 
 ## 💡 Kullanım Senaryoları
 
