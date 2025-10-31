@@ -23,7 +23,7 @@ def show_predict_page():
     <div style='background-color: #eff6ff; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;'>
         <p style='margin: 0; font-size: 1rem;'>
         Bu sayfa, <strong>Decision Tree Regressor</strong> modelini kullanarak girdiğiniz bilgilere göre 
-        yıllık maaş tahmini yapar. Model, <strong>Stack Overflow Developer Survey 2024</strong> 
+        yıllık maaş tahmini yapar. Model, <strong>Stack Overflow Developer Survey 2025</strong> 
         verilerine dayanarak eğitilmiştir.
         </p>
     </div>
@@ -235,7 +235,7 @@ def show_predict_page():
                 st.markdown("""
                 ### Model Detayları:
                 - **Algoritma**: Decision Tree Regressor
-                - **Eğitim Verisi**: Stack Overflow Developer Survey 2024
+                - **Eğitim Verisi**: Stack Overflow Developer Survey 2025
                 - **Özellikler**: Ülke, Eğitim Düzeyi, Deneyim
                 
                 ### Tahmin Doğruluğu:

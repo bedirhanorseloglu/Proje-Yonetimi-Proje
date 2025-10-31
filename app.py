@@ -1,6 +1,6 @@
 import streamlit as st
 from predict_page import show_predict_page
-from explore_page import show_explore_page
+from explore_page import show_explore_page, df as explore_df
 from clustering_page import show_clustering_page
 
 # Sayfa yapılandırması
@@ -73,7 +73,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("### 📌 Proje Hakkında")
     st.info("""
-    Stack Overflow Developer Survey 2024 verilerini kullanarak:
+    Stack Overflow Developer Survey 2025 verilerini kullanarak:
     - Maaş tahmini
     - Veri analizi
     - K-Means kümeleme
@@ -85,13 +85,13 @@ with st.sidebar:
 
 # Ana sayfa
 if page == "🏠 Ana Sayfa":
-    st.title("🎓 Stack Overflow Developer Survey - Maaş Analizi ve Kümeleme Projesi")
+    st.title("🎓 Stack Overflow Developer Survey - Analizi")
     
     st.markdown("""
     <div style='background-color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);'>
         <h2 style='color: #1e3a8a;'>📚 Hoş Geldiniz!</h2>
         <p style='font-size: 1.1rem; line-height: 1.6;'>
-        Bu platform, <strong>Stack Overflow Developer Survey 2024</strong> verilerini kullanarak geliştiricilerin 
+        Bu platform, <strong>Stack Overflow Developer Survey 2025</strong> verilerini kullanarak geliştiricilerin 
         maaşlarını tahmin eden ve geliştirici profillerini kümeleme analizi ile gruplandıran bir makine öğrenmesi projesidir.
         </p>
     </div>
@@ -102,13 +102,14 @@ if page == "🏠 Ana Sayfa":
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.markdown("""
+        st.markdown(f"""
         <div style='background-color: #dbeafe; padding: 1.5rem; border-radius: 10px; text-align: center;'>
-            <h1 style='color: #1e40af; margin: 0;'>23,928</h1>
+            <h1 style='color: #1e40af; margin: 0;'>{len(explore_df):,}</h1>
             <p style='color: #1e40af; margin: 0.5rem 0 0 0;'>Analiz Edilen Kişi</p>
         </div>
         """, unsafe_allow_html=True)
-    
+
+   
     with col2:
         st.markdown("""
         <div style='background-color: #dcfce7; padding: 1.5rem; border-radius: 10px; text-align: center;'>
